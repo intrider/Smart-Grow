@@ -1,0 +1,51 @@
+/* Styles for Login Component */
+#loginPage {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 100vh;
+    /* width: 100vw; */
+    background-image: url('../images/home-section.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .login-box {
+    background-color: rgba(255, 255, 255, 0.432);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 24px rgba(0, 0, 0, 0.2); /* Updated box-shadow */
+    width: 300px;
+    text-align: center;
+    margin: 0;
+    justify-content: center;
+  }
+  .login-box input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .login-box h2 {
+    margin-bottom: 20px;
+    color: #080808;
+  }
+  .login-box button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #56a1b4;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .login-box button:hover {
+    background-color: #1fa0c7;
+  }
+  .login-box p {
+    margin-top: 15px;
+    color: #080808;
+  }

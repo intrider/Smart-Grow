@@ -1,0 +1,70 @@
+ #navbar-home {
+    padding: 15px;
+    background-color: #59a3eea9;
+    box-shadow: 0 4px 8px rgba(39, 38, 38, 0.2);
+    /* border: 1px solid black; */
+    position: fixed;
+    width:100%;
+  }
+  #navbar-home ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .smart-logo{
+    margin-right: 300px;
+  }
+  #navbar-home ul li {
+    margin-right: 70px;
+    display: inline;
+  }
+  
+  #navbar-home ul li.logo {
+    margin-right: auto;
+  }
+  
+  #navbar-home ul li a {
+    text-decoration: none;
+    font-size: 17px;
+    color: #fdfdfd;
+    padding: 10px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+  }
+  
+  #navbar-home ul li a:hover {
+    color: #0f1414;
+    border-radius: 5px;
+  }
+  .cart-btn{
+    border-radius: 20px;
+  }
+  .profile{
+    text-decoration: none;
+    color: #fdfdfd;
+    font-weight: 800;
+  }
+  .profile:hover{
+    color: #0f1414;
+  }
+  #navbar-home a:hover {
+    border-bottom: 2px solid #9ecfcf;
+  }
+  .logo-image{
+    height: 40px;
+    margin-right: 10px;
+  }
+  .logout-button{
+    background-color: #20BEC9;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 55px;
+    margin-top: 5px;
+  }
+  .logout-button:hover{
+    background-color: #0f1414;
+  }

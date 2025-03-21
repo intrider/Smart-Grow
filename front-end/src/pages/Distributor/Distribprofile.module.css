@@ -1,0 +1,92 @@
+/* DistributorProfile.module.css */
+
+.profileContainer {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .profileContainer h2 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .profileForm {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .label {
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: left;
+    color: #555;
+  }
+  
+  .input {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+  }
+  
+  .input:disabled {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+  }
+  
+  .buttonContainer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .editButton, .updateButton {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 48%;
+  }
+  
+  .editButton {
+    background-color: #4b92df;
+    color: rgb(45, 203, 214);
+  }
+  
+  .editButton:hover {
+    background-color: #0056b3;
+  }
+  
+  .updateButton {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .updateButton:hover {
+    background-color: #21883765;
+  }
+  
+  @media (max-width: 600px) {
+    .profileContainer {
+      width: 90%;
+      padding: 15px;
+    }
+  
+    .buttonContainer {
+      flex-direction: column;
+    }
+  
+    .editButton, .updateButton {
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+  

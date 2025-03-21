@@ -1,0 +1,86 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #48b2c0;
+  color: #fff;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar h2 {
+  margin: 0;
+  padding: 1rem 0;
+}
+
+.sidebar #distributor-name {
+  margin: 1rem 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.sidebar ul li {
+  width: 100%;
+}
+
+.sidebar ul li a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #fff;
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
+}
+
+.sidebar ul li a:hover {
+  background-color: #4f8582ab;
+}
+
+.content {
+  flex: 1;
+  padding: 1rem;
+}
+
+.topbar {
+  background-color: #79c7ad;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+
+.card {
+  background-color: #fff;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+.card p {
+  margin: 0.5rem 0;
+}
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateX(-5px);
+}

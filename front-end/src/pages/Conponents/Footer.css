@@ -1,0 +1,8 @@
+.footer-home {
+    background-color: rgba(0, 0, 0, 0.945);
+    color: white;
+    text-align: center;
+    /* position: fixed; */
+    padding: 10px 0;
+    width: 100%;
+  }
