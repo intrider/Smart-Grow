@@ -47,7 +47,6 @@ const ProfileCompletion = () => {
       console.log("Profile update request sent to:", `http://localhost:3008/user/complete-profile/${userId}`);
       console.log("Sent data:", formData);
 
-      // Store shopLocation in localStorage
       localStorage.setItem("shopLocation", formData.shopLocation);
 
       alert(response.data.message);

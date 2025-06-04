@@ -9,6 +9,7 @@ const EditProduct = ({ onUpdate, onCancel }) => {
   const [product, setProduct] = useState(null);
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
+  const[size,setSize]=useState("");
   const [price, setPrice] = useState("");
   const [image, setImage] = useState(null);
   const [categories, setCategories] = useState([]);
@@ -22,6 +23,7 @@ const EditProduct = ({ onUpdate, onCancel }) => {
         setProduct(productData);
         setName(productData.name);
         setCategory(productData.category?._id || "");
+        setSize(productData.size);
         setPrice(productData.price);
       } catch (error) {
         console.error("Error fetching product:", error);
@@ -58,6 +60,7 @@ const EditProduct = ({ onUpdate, onCancel }) => {
     const formData = new FormData();
     formData.append("name", name);
     formData.append("category", category);
+    formData.append("size", size);
     formData.append("price", price);
     if (image) {
       formData.append("image", image);
@@ -90,13 +93,13 @@ const EditProduct = ({ onUpdate, onCancel }) => {
             <option key={cat._id} value={cat._id}>{cat.name}</option>
           ))}
         </select>
-
+        <label>Size:</label>
+        <input type="text" value={size} onChange={(e) => setSize(e.target.value)} required />
         <label>Price:</label>
         <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} required />
 
         <label>Change Image:</label>
         <input type="file" onChange={handleImageChange} />
-
         <div className="button-group">
           <button type="submit">Update</button>
           <button type="button" onClick={onCancel}>Cancel</button>

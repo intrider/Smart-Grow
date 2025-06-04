@@ -53,32 +53,38 @@ const Product = () => {
   };
 
   const addToCart = (product) => {
-    setCart((prevCart) => {
-      const updatedCart = { ...prevCart };
+  setCart((prevCart) => {
+    const updatedCart = { ...prevCart };
+    const currentQuantity = updatedCart[product._id]?.quantity || 0;
+    if (currentQuantity < product.stock) {
       if (updatedCart[product._id]) {
         updatedCart[product._id].quantity += 1;
         updatedCart[product._id].totalPrice = updatedCart[product._id].quantity * updatedCart[product._id].price;
       } else {
         updatedCart[product._id] = { ...product, quantity: 1, totalPrice: product.price };
       }
-      localStorage.setItem("cart", JSON.stringify(updatedCart));
-      return updatedCart;
-    });
-  };
+    } else {
+      alert("Stock limit reached!");
+    }
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    return updatedCart;
+  });
+};
 
-  const decreaseQuantity = (productId) => {
-    setCart((prevCart) => {
-      const updatedCart = { ...prevCart };
-      if (updatedCart[productId].quantity > 1) {
-        updatedCart[productId].quantity -= 1;
-        updatedCart[productId].totalPrice = updatedCart[productId].quantity * updatedCart[productId].price;
-      } else {
-        delete updatedCart[productId];
-      }
-      localStorage.setItem("cart", JSON.stringify(updatedCart));
-      return updatedCart;
-    });
-  };
+const decreaseQuantity = (productId) => {
+  setCart((prevCart) => {
+    const updatedCart = { ...prevCart };
+    if (updatedCart[productId].quantity > 1) {
+      updatedCart[productId].quantity -= 1;
+      updatedCart[productId].totalPrice = updatedCart[productId].quantity * updatedCart[productId].price;
+    } else {
+      delete updatedCart[productId];
+    }
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    return updatedCart;
+  });
+};
+
 
   return (
     <div className={styles.productContainer}>
@@ -99,26 +105,28 @@ const Product = () => {
       </button>
 
       <div className={styles.productGrid}>
-        {filteredProducts.length > 0 ? (
-          filteredProducts.map((product) => (
-            <div key={product._id} className={styles.productCard}>
-              <img src={`http://localhost:3008/${product.image}`} alt={product.name} className={styles.productImage} />
-              <h3>{product.name}</h3>
-              <p>₹{product.price}</p>
-              {!cart[product._id] ? (
-                <button className={styles.addToCart} onClick={() => addToCart(product)}>Add to Cart</button>
-              ) : (
-                <div className={styles.quantityControls}>
-                  <button onClick={() => decreaseQuantity(product._id)}>-</button>
-                  <span>{cart[product._id].quantity}</span>
-                  <button onClick={() => addToCart(product)}>+</button>
-                </div>
-              )}
-            </div>
-          ))
-        ) : (
-          <p className={styles.notFound}>Product not found</p>
-        )}
+      {filteredProducts.length > 0 ? (
+  filteredProducts.map((product) => (
+    <div key={product._id} className={styles.productCard}>
+      <img src={`http://localhost:3008/${product.image}`} alt={product.name} className={styles.productImage} />
+      <h3>{product.name}</h3>
+      <p>₹{product.price}</p>
+      <p className={styles.size}>Size: {product.size}</p>
+      <p className={styles.stock}>Available Stock: {product.stock}</p>
+      {!cart[product._id] ? (
+        <button className={styles.addToCart} onClick={() => addToCart(product)}>Add to Cart</button>
+      ) : (
+        <div className={styles.quantityControls}>
+          <button onClick={() => decreaseQuantity(product._id)}>-</button>
+          <span>{cart[product._id].quantity}</span>
+          <button onClick={() => addToCart(product)}>+</button>
+        </div>
+      )}
+    </div>
+  ))
+) : (
+  <p className={styles.notFound}>Product not found</p>
+)}
       </div>
     </div>
   );

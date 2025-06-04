@@ -5,7 +5,7 @@
   /* height: 100vh;  */
   min-height: 100vh;
   padding-top: 60px;
-  background-color: #f5f5f5; /* Optional background color */
+  background-color: #5ca7aab9; /* Optional background color */
   margin: 0;
 }
 .profile-completion {
@@ -13,7 +13,7 @@
   padding: 20px;
   background-color: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 8px;
+  border-radius: 18px;
   text-align: center;
 }
 
@@ -27,7 +27,7 @@ input, button {
   padding: 10px;
   font-size: 16px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 15px;
 }
 
 button {

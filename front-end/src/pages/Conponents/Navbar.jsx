@@ -13,7 +13,7 @@ function Navbar() {
   };
 
   useEffect(() => {
-    updateCartCount(); // Initial cart count update
+    updateCartCount();
 
     const handleStorageChange = () => {
       updateCartCount();
@@ -39,6 +39,7 @@ function Navbar() {
         <li><Link to="/home" className="smart-logo">Smart-Grow</Link></li>
         <li><Link to="/home">Home</Link></li>
         <li><Link to="/store">Store</Link></li>
+        <li><Link to ="/orders">Orders</Link></li>
         <li>
           <button className="cart-btn" onClick={() => navigate("/cart")}>
             🛒 Cart {cartCount > 0 && <span className="cart-count">({cartCount})</span>}

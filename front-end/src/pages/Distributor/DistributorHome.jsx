@@ -125,15 +125,18 @@ const ordersPerPage = 10;
           Welcome, <span>{distributor.name}</span>
         </p>
         <ul>
-          <li>
-            <a href="#products">Products</a>
+        <li>
+            <a href="#orders">Orders</a>
           </li>
           <li>
             <a href="#categories">Categories</a>
           </li>
           <li>
-            <a href="#orders">Orders</a>
+            <a href="#products">Products</a>
           </li>
+        <li>
+            <Link to="/storeManagement">Store Management</Link>
+        </li>
           <li>
             <Link to="/distributorprofile"> Edit Profile</Link>
           </li>
@@ -146,39 +149,6 @@ const ordersPerPage = 10;
         <header className="topbar">
           <h1>Distributor Dashboard</h1>
         </header>
-        <section id="products" className="card">
-          <h2>Products</h2>
-          <button id="add-product" onClick={() => navigate('/addproduct')}>Add Product</button>
-          <div className="product-grid">
-            {products.map(product => (
-              <div key={product._id} className="product-card">
-                <img src={`http://localhost:3008/${product.image}`} alt={product.name} className="product-image"/>
-                <p className="product-name">{product.name}</p>
-                <p className="product-category">{product.category?.name || 'Uncategorized'}</p>
-                <p className="product-price">₹{product.price}</p>
-                <div className="product-actions">
-                  <button className="edit-btn" onClick={() => navigate(`/productedit/${product._id}`)}>Edit</button>
-                  <button className="delete-btn" onClick={() => handleProductDelete(product._id)}>Delete</button>
-                </div>
-              </div>
-            ))}
-          </div>
-          <h4></h4>
-        </section>
-        <section id="categories" className="card">
-          <h2>Categories</h2>
-          <button onClick={()=>navigate('/addcategory')}>Add Category</button>
-          <ul>
-            {categories.map(category => (
-              <li key={category._id}>
-                <p>{category.name}</p>
-                <img src={`http://localhost:3008/${category.image}`} alt={category.name} className="category-image"/>
-                <button className="delete-btn" onClick={() => handleCategoryDelete(category._id)}>Delete</button>
-                </li>
-            ))}
-          </ul>
-          <h3></h3>
-        </section>
         <section id="orders" className="card orders-section">
   <h2>Orders</h2>
   {orders.length > 0 ? (
@@ -190,6 +160,7 @@ const ordersPerPage = 10;
             <th>Shop Location</th>
             <th>Phone No</th>
             <th>Products</th>
+            <th>Size</th>
             <th>Quantity</th>
             <th>Price</th>
             <th>Payment Mode</th>
@@ -206,6 +177,11 @@ const ordersPerPage = 10;
               <td>
                 {order.products.map((product, index) => (
                   <p key={index}>{product.productId?.name || "Unknown Product"}</p>
+                ))}
+              </td>
+              <td>
+                {order.products.map((product, index) => (
+                  <p key={index}>{product.productId?.size || "N/A"}</p>
                 ))}
               </td>
               <td>
@@ -243,6 +219,41 @@ const ordersPerPage = 10;
     </div>
   )}
 </section>
+<section id="categories" className="card">
+          <h2>Categories</h2>
+          <button onClick={()=>navigate('/addcategory')}>Add Category</button>
+          <ul>
+            {categories.map(category => (
+              <li key={category._id}>
+                <p>{category.name}</p>
+                <img src={`http://localhost:3008/${category.image}`} alt={category.name} className="category-image"/>
+                <button className="delete-btn" onClick={() => handleCategoryDelete(category._id)}>Delete</button>
+                </li>
+            ))}
+          </ul>
+          <h3></h3>
+        </section>
+        <section id="products" className="card">
+          <h2>Products</h2>
+          <button id="add-product" onClick={() => navigate('/addproduct')}>Add Product</button>
+          <div className="product-grid">
+            {products.map(product => (
+              <div key={product._id} className="product-card">
+                <img src={`http://localhost:3008/${product.image}`} alt={product.name} className="product-image"/>
+                <p className="product-name">{product.name}</p>
+                <p className="product-category">{product.category?.name || 'Uncategorized'}</p>
+                <p className="product-size">Size: {product.size}</p>
+                <p className="product-stock">Stock: {product.stock || 'N/A'}</p>
+                <p className="product-price">₹{product.price}</p>
+                <div className="product-actions">
+                  <button className="edit-btn" onClick={() => navigate(`/productedit/${product._id}`)}>Edit</button>
+                  <button className="delete-btn" onClick={() => handleProductDelete(product._id)}>Delete</button>
+                </div>
+              </div>
+            ))}
+          </div>
+          <h4></h4>
+        </section>
       </main>
     </div>
   );

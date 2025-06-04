@@ -2,7 +2,6 @@
     padding: 15px;
     background-color: #59a3eea9;
     box-shadow: 0 4px 8px rgba(39, 38, 38, 0.2);
-    /* border: 1px solid black; */
     position: fixed;
     width:100%;
   }
@@ -12,7 +11,7 @@
     justify-content: flex-end;
   }
   .smart-logo{
-    margin-right: 300px;
+    margin-right: 180px;
   }
   #navbar-home ul li {
     margin-right: 70px;
@@ -26,15 +25,15 @@
   #navbar-home ul li a {
     text-decoration: none;
     font-size: 17px;
+    font-family: sans-serif;
     color: #fdfdfd;
     padding: 10px;
-    font-weight: 800;
+    font-weight: 790;
     display: flex;
     align-items: center;
   }
-  
   #navbar-home ul li a:hover {
-    color: #0f1414;
+    /* color: #0f1414; */
     border-radius: 5px;
   }
   .cart-btn{
@@ -43,14 +42,15 @@
   .profile{
     text-decoration: none;
     color: #fdfdfd;
-    font-weight: 800;
+    font-weight: 790;
   }
   .profile:hover{
     color: #0f1414;
   }
   #navbar-home a:hover {
-    border-bottom: 2px solid #9ecfcf;
-  }
+    text-decoration: underline;
+    color:black;
+    }
   .logo-image{
     height: 40px;
     margin-right: 10px;

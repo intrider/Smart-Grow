@@ -8,6 +8,8 @@ function AddProduct() {
     name: '',
     category: '',
     price: '',
+    stock: '',
+    size: '',
     image: null
   });
 
@@ -53,7 +55,7 @@ function AddProduct() {
   const handleProductSubmit = async (e) => {
     e.preventDefault();
     
-    if (!productForm.name || !productForm.category || !productForm.price || !productForm.image) {
+    if (!productForm.name || !productForm.category || !productForm.price || !productForm.stock || !productForm.size || !productForm.image) {
       alert("All fields are required.");
       return;
     }
@@ -68,6 +70,8 @@ function AddProduct() {
     formData.append('name', productForm.name);
     formData.append('category', productForm.category);
     formData.append('price', productForm.price);
+    formData.append('stock', productForm.stock);
+    formData.append('size', productForm.size);
     formData.append('image', productForm.image);
     formData.append('distributorId', distributorId); 
 
@@ -122,6 +126,28 @@ function AddProduct() {
             id="productPrice"
             name="price"
             value={productForm.price}
+            onChange={handleProductChange}
+            className={styles.input}
+            required
+          />
+
+          <label className={styles.label} htmlFor="productStock">Stock:</label>
+          <input
+            type="number"
+            id="productStock"
+            name="stock"
+            value={productForm.stock}
+            onChange={handleProductChange}
+            className={styles.input}
+            required
+          />
+
+          <label className={styles.label} htmlFor="productSize">Size:</label>
+          <input
+            type="text"
+            id="productSize"
+            name="size"
+            value={productForm.size}
             onChange={handleProductChange}
             className={styles.input}
             required

@@ -7,45 +7,45 @@ import Navbar from "./Conponents/Navbar";
 import Footer from "./Conponents/Footer";
 
 const Home = () => {
-  const [categories, setCategories] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [shopLocation, setShopLocation] = useState(null);
+  // const [categories, setCategories] = useState([]);
+  // const [loading, setLoading] = useState(true);
+  // const [shopLocation, setShopLocation] = useState(null);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const storedShopLocation = localStorage.getItem("shopLocation");
+  // useEffect(() => {
+  //   const storedShopLocation = localStorage.getItem("shopLocation");
 
-    if (!storedShopLocation) {
-      console.warn("Shop location is missing! Redirecting to profile completion.");
-      alert("Please complete your profile first.");
-      return;
-    }
+  //   if (!storedShopLocation) {
+  //     console.warn("Shop location is missing! Redirecting to profile completion.");
+  //     alert("Please complete your profile first.");
+  //     return;
+  //   }
 
-    setShopLocation(storedShopLocation);
+  //   setShopLocation(storedShopLocation);
 
-    const fetchCategories = async () => {
-      try {
-        const response = await axios.get(
-          `http://localhost:3008/distributor/category-with-products?shopLocation=${storedShopLocation}`
-        );
-        setCategories(response.data.categories);
-      } catch (error) {
-        console.error("Error fetching categories:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  //   const fetchCategories = async () => {
+  //     try {
+  //       const response = await axios.get(
+  //         `http://localhost:3008/distributor/category-with-products?shopLocation=${storedShopLocation}`
+  //       );
+  //       setCategories(response.data.categories);
+  //     } catch (error) {
+  //       console.error("Error fetching categories:", error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
-    fetchCategories();
-  }, []);
+  //   fetchCategories();
+  // }, []);
 
-  if (!shopLocation) {
-    return <p>Please complete your profile to view products.</p>;
-  }
+  // if (!shopLocation) {
+  //   return <p>Please complete your profile to view products.</p>;
+  // }
 
-  if (loading) {
-    return <p>Loading categories...</p>;
-  }
+  // if (loading) {
+  //   return <p>Loading categories...</p>;
+  // }
 
   return (
     <>

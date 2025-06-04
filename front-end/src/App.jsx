@@ -1,5 +1,4 @@
 import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
 import { BrowserRouter as Router , Route, Routes } from 'react-router-dom';
 import Login from './pages/Login'
 import './App.css'
@@ -15,6 +14,8 @@ import Product from './pages/Product';
 import Cart from './pages/Cart';
 import Store from './pages/Store';
 import Payment from './pages/Payment';
+import Orders from './pages/Conponents/Orders';
+import StoreManagement from './pages/Distributor/Store';
 function App() {
   const userId = localStorage.getItem('userId');
   const distributorId =localStorage.getItem('distributorId')
@@ -34,6 +35,8 @@ function App() {
       <Route path='/store'element={<Store/>}/>
       <Route path='/products/:categoryId'element={<Product />}/>
       <Route path='/payment' element={<Payment/>}/>
+      <Route path='/orders' element={<Orders/>}/>
+      <Route path='/storeManagement' element={<StoreManagement/>}/>
       </Routes>
     )
 }

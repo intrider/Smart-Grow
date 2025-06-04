@@ -89,6 +89,7 @@ function Login() {
       const response = await axios.post(`http://localhost:3008/${role}/login`, loginData);
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('userId', response.data.userId);
+      console.log("stored UserId:",localStorage.getItem("userId"));
       localStorage.setItem('role', response.data.role);
       console.log(response.data);
       alert('Login successful');
@@ -103,7 +104,6 @@ function Login() {
       alert('Login failed');
     }
   }
-
   return (
     <div id="loginPage">
       <div className="login-box">
@@ -122,6 +122,5 @@ function Login() {
     </div>
   );
 }
-
 export default Login;
 

@@ -1,0 +1,78 @@
+.ordersContainer {
+  padding: 20px;
+}
+
+.ordersTitle {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.noOrders {
+  font-size: 18px;
+  color: gray;
+}
+
+.ordersGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.orderCard {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.orderId {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.orderPrice {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.productTitle {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.productList {
+  list-style: none;
+  padding: 0;
+}
+
+.productItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.productImage {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.productDetails {
+  font-size: 14px;
+}
+
+.orderStatus {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.delivered {
+  color: green;
+}
+
+.pending {
+  color: orange;
+}
